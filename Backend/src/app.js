@@ -5,7 +5,7 @@ const cors = require("cors")
 const app = express()
 const path = require("path")
 app.use(express.json())
-app.use(express.static("./Public"))
+app.use(express.static(path.join(__dirname, "../Public")))
 app.use(cors())
 
 app.post('/api/friend', async (req, res) => {
@@ -37,13 +37,13 @@ app.delete('/api/friend/:id', async (req, res) => {
 app.patch('/api/friend/:id', async (req, res) => {
     const id = req.params.id
     const { name, city } = req.body
-    await friendmodule.findByIdAndUpdate(id, {name, city })
+    await friendmodule.findByIdAndUpdate(id, { name, city })
     res.status(200).json({
         message: "friend Update successfully",
     })
 })
-app.use('*name', (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "/Public/index.html"))
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Public/index.html"))
 })
 
 module.exports = app

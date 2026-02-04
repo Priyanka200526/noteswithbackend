@@ -47,7 +47,7 @@ const App = () => {
   }
 
   function deletedata(id) {
-    axios.delete('http://localhost:3000/api/friend/' + id)
+    axios.delete('https://noteswithbackend.onrender.com/api/friend/' + id)
       .then(fetchdata)
   }
 
@@ -75,7 +75,7 @@ const App = () => {
         />
 
         <button>
-          <i class="ri-add-large-line"></i>
+          <i className="ri-add-large-line"></i>
           {editId ? "Update Friend" : "Create Friend"}
         </button>
       </form>
@@ -90,10 +90,10 @@ const App = () => {
 
             <div className="btns">
               <button onClick={() => deletedata(item._id)}>
-                <i class="ri-delete-bin-7-fill"></i>
+                <i className="ri-delete-bin-7-fill"></i>
                  Delete</button>
               <button onClick={() => handleEdit(item)}>
-                <i class="ri-edit-line"></i>
+                <i className="ri-edit-line"></i>
                  Edit</button>
             </div>
           </div>
