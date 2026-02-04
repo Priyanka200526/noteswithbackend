@@ -10,7 +10,7 @@ const App = () => {
   const [editId, setEditId] = useState(null)
 
   function fetchdata() {
-    axios.get('http://localhost:3000/api/friend')
+    axios.get('https://noteswithbackend.onrender.com/api/friend')
       .then(res => setfriendData(res.data.friend || res.data))
   }
 
@@ -22,7 +22,7 @@ const App = () => {
     e.preventDefault()
 
     if (editId) {
-      axios.patch('http://localhost:3000/api/friend/' + editId, {
+      axios.patch('https://noteswithbackend.onrender.com/api/friend/' + editId, {
         name,
         city
       }).then(() => {
@@ -30,7 +30,7 @@ const App = () => {
         clearForm()
       })
     } else {
-      axios.post('http://localhost:3000/api/friend', {
+      axios.post('https://noteswithbackend.onrender.com/api/friend', {
         name,
         city
       }).then(() => {
