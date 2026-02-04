@@ -45,7 +45,7 @@ app.patch('/api/friend/:id', async (req, res) => {
 // app.get("*", (req, res) => {
 //     res.sendFile(path.join(__dirname, "../Public/index.html"))
 // })
-app.use("*", (req, res) => {
+app.use("*name", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
