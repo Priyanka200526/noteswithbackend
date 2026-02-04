@@ -42,8 +42,11 @@ app.patch('/api/friend/:id', async (req, res) => {
         message: "friend Update successfully",
     })
 })
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Public/index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../Public/index.html"))
+// })
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
 module.exports = app
